@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Control Structures Practice</title>
+</head>
+<body>
+<h2>JavaScript Practice Results</h2>
+<p id="output"></p>
+<script>
+
+let output = "";
+
+// No.1
+
+let answer = prompt("Are you wearing your school ID? (yes/no)");
+answer = answer.toLowerCase();
+if (answer === "yes") {
+    output += "1. Welcome to the event! <br>";
+} else {
+    output += "1. Please show your ID. <br>";
+}
+
+// No.2 
+
+let student = prompt("Are you a student? (yes/no)");
+let senior = prompt("Are you a senior citizen? (yes/no)");
+
+student = student.toLowerCase();
+senior = senior.toLowerCase();
+
+if (student === "yes" || senior === "yes") {
+    output += "2. You get a discounted fare. <br>";
+} else {
+    output += "2. You will pay the regular fare. <br>";
+}
+
+// No.3
+
+let score = Number(prompt("Enter your quiz score (0–100):"));
+
+if (score < 0 || score > 100) {
+    output += "3. Invalid score <br>";
+}
+else if (score >= 90) {
+    output += "3. Excellent <br>";
+}
+else if (score >= 75) {
+    output += "3. Good job <br>";
+}
+else if (score >= 60) {
+    output += "3. You passed <br>";
+}
+else {
+    output += "3. You need to review lol....<br>";
+}
+
+// No.4
+
+let choice = prompt("Choose a data promo (A, B, or C)");
+choice = choice.toUpperCase();
+
+switch(choice) {
+
+    case "A":
+        output += "4. 1GB for 1 day <br>";
+        break;
+
+    case "B":
+        output += "4. 5GB for 7 days <br>";
+        break;
+
+    case "C":
+        output += "4. 10GB for 30 days <br>";
+        break;
+
+    default:
+        output += "4. Invalid choice <br>";
+}
+
+// No. 5
+
+let name = prompt("Enter your full name");
+name = name.toLowerCase();
+
+let count = 0;
+
+for (let i = 0; i < name.length; i++) {
+
+    if (name[i] === "a" ||
+        name[i] === "e" ||
+        name[i] === "i" ||
+        name[i] === "o" ||
+        name[i] === "u") {
+
+        count++;
+    }
+}
+
+output += "5. Your name contains " + count + " vowels.<br>";
+
+// No. 6
+
+let username = prompt("Enter a username");
+
+let hasSpace = false;
+
+for (let i = 0; i < username.length; i++) {
+
+    if (username[i] === " ") {
+        hasSpace = true;
+    }
+
+}
+
+if (hasSpace) {
+    output += "6. Username must not contain spaces.<br>";
+}
+else if (username.length < 6) {
+    output += "6. Username must be at least 6 characters.<br>";
+}
+else {
+    output += "6. Valid username.<br>";
+}
+
+// No. 7
+
+let attempts = 0;
+let password;
+
+while (attempts < 3) {
+
+    password = prompt("Enter your password");
+
+    if (password === "Grade9JS") {
+        output += "7. Login successful.<br>";
+        break;
+    }
+
+    attempts++;
+}
+
+if (attempts === 3 && password !== "Grade9JS") {
+    output += "7. Account locked.<br>";
+}
+
+// Show all results
+
+document.getElementById("output").innerHTML = output;
+
+</script>
+
+</body>
+</html>
